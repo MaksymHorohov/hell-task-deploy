@@ -1,0 +1,19 @@
+{
+  "name": "ht-base-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "terraform fmt",
+    "validate": "terraform validate",
+    "apply": "terraform apply -auto-approve",
+    "destroy": "terraform destroy -target"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.5.2",
+    "terraform-npm": "^0.2.6"
+  }
+}
