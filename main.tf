@@ -3,6 +3,10 @@ provider "aws" {
   version = "2.70.0"
 }
 
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
 resource "aws_instance" "app_server" {
   ami           = "ami-08a0d1e16fc3f61ea"
   instance_type = "t2.micro"
@@ -41,6 +45,31 @@ resource "aws_sqs_queue" "sqs-queue" {
     Name = "MySQS"
   }
 }
+
+#Service IAMs
+
+resource "aws_iam_user" "userService" {
+  name = "userService"
+}
+
+resource "aws_iam_access_key" "userService" {
+  user = "${aws_iam_user.userService.name}"
+}
+
+data "aws_iam_policy_document" "userService" {
+  statement {
+    effect    = "Allow"
+    actions   = ["rds-db:connect"]
+    resources = ["${aws_db_instance.rds.arn}"]
+  }
+}
+
+resource "aws_iam_user_policy" "userService" {
+  name   = "test"
+  user   = "${aws_iam_user.userService.name}"
+  policy = "${data.aws_iam_policy_document.userService.json}"
+}
+
 
 
 

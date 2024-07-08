@@ -37,3 +37,14 @@ spec:
             requests:
               cpu: 100m
               memory: 100Mi
+          env:
+            - name: RDS_HOSTNAME
+              value: ""
+            - name: RDS_PORT
+              value: ""
+            - name: RDS_DB_NAME
+              value: ""
+            - name: RDS_USERNAME
+              value: ""
+            - name: RDS_PASSWORD
+              value: ""

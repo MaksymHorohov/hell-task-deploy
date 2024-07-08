@@ -21,15 +21,3 @@ variable "message_retention_period" {
 variable "receive_message_wait_time_seconds" {
   type = "string"
 }
-
-#variable "JENKINS_URL" {
-#  type = "string"
-#}
-#
-#variable "JENKINS_USERNAME" {
-#  type = "string"
-#}
-#
-#variable "JENKINS_PASSWORD" {
-#  type = "string"
-#}
