@@ -7,6 +7,8 @@ provider "kubernetes" {
   config_path = "~/.kube/config"
 }
 
+#AWS Services
+
 resource "aws_instance" "app_server" {
   ami           = "ami-08a0d1e16fc3f61ea"
   instance_type = "t2.micro"
